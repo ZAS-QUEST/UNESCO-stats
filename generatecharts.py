@@ -122,13 +122,13 @@ def videoduration():
         power(sorted(values)[:-10], "# total length of archived video in hours (excluding top 10 lgs, log)", "video_cropped_log.png", log=True)           
         
 if __name__ == "__main__":
-    #crubadan()
-    #wikistats()
-    #olacprimarytexts()
-    #audioduration()
-    #videoduration()
-    #glottorefs()
-    #aclwiki()
+    crubadan()
+    wikistats()
+    olacprimarytexts()
+    audioduration()
+    videoduration()
+    glottorefs()
+    aclwiki()
     olachtml()
 
 
