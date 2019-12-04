@@ -108,7 +108,29 @@ def audioduration():
         power(sorted(values), "# total length of archived audio in hours", "audio.png")
         power(sorted(values), "# total length of archived audio in hours (log)", "audio_log.png", log=True)  
         power(sorted(values)[:-10], "# total length of archived audio in hours (excluding top 10 lgs)", "audio_cropped.png")
-        power(sorted(values)[:-10], "# total length of archived audio in hours (excluding top 10 lgs, log)", "audio_cropped_log.png", log=True)   
+        power(sorted(values)[:-10], "# total length of archived audio in hours (excluding top 10 lgs, log)", "audio_cropped_log.png", log=True)           
+        
+def audioduration_delaman():    
+    with open("audioduration_delaman.csv") as audiodelaman:  
+        lines = audiodelaman.readlines()
+        audiodelamanvalues = [float(line.strip()) for line in lines] 
+        zeros = [0.1 for x in range(7459-len(audiodelamanvalues))]
+        values = audiodelamanvalues + zeros            
+        power(sorted(values), "# total length of archived audio in hours in DELAMAN archives", "audio_delaman.png")
+        power(sorted(values), "# total length of archived audio in hours in DELAMAN archives (log)", "audio_delaman_log.png", log=True)  
+        power(sorted(values)[:-10], "# total length of archived audio in hours in DELAMAN archives(excluding top 10 lgs)", "audio_delaman_cropped.png")
+        power(sorted(values)[:-10], "# total length of archived audio in hours in DELAMAN archives (excluding top 10 lgs, log)", "audio_delaman_cropped_log.png", log=True)   
+        
+def videoduration_delaman():    
+    with open("videoduration_delaman.csv") as videodelaman:  
+        lines = videodelaman.readlines()
+        videodelamanvalues = [float(line.strip()) for line in lines] 
+        zeros = [0.1 for x in range(7459-len(videodelamanvalues))]
+        values = videodelamanvalues + zeros            
+        power(sorted(values), "# total length of archived video in hours in DELAMAN archives", "video_delaman.png")
+        power(sorted(values), "# total length of archived video in hours in DELAMAN archives (log)", "video_delaman_log.png", log=True)  
+        power(sorted(values)[:-10], "# total length of archived video in hours in DELAMAN archives(excluding top 10 lgs)", "video_delaman_cropped.png")
+        power(sorted(values)[:-10], "# total length of archived video in hours in DELAMAN archives (excluding top 10 lgs, log)", "video_delaman_cropped_log.png", log=True)   
         
 def videoduration():    
     with open("videoduration.csv") as video:  
@@ -119,14 +141,29 @@ def videoduration():
         power(sorted(values), "# total length of archived video in hours", "video.png")
         power(sorted(values), "# total length of archived video in hours (log)", "video_log.png", log=True)  
         power(sorted(values)[:-10], "# total length of archived video in hours (excluding top 10 lgs)", "video_cropped.png")
-        power(sorted(values)[:-10], "# total length of archived video in hours (excluding top 10 lgs, log)", "video_cropped_log.png", log=True)           
+        power(sorted(values)[:-10], "# total length of archived video in hours (excluding top 10 lgs, log)", "video_cropped_log.png", log=True)          
+        
+                
+def transcriptions():    
+    with open("transcriptions.csv") as transcription:  
+        lines = transcription.readlines()
+        transcriptionvalues = [float(line.strip()) for line in lines] 
+        zeros = [0.1 for x in range(7459-len(transcriptionvalues))]
+        values = transcriptionvalues + zeros            
+        power(sorted(values), "# archived transcription", "transcription.png")
+        power(sorted(values), "# archived transcription (log)", "transcription_log.png", log=True)  
+        power(sorted(values)[:-10], "# archived transcription (excluding top 10 lgs)", "transcription_cropped.png")
+        power(sorted(values)[:-10], "# archived transcription (excluding top 10 lgs, log)", "transcription_cropped_log.png", log=True)          
         
 if __name__ == "__main__":
     crubadan()
     wikistats()
     olacprimarytexts()
     audioduration()
+    audioduration_delaman()
     videoduration()
+    videoduration_delaman()
+    transcriptions()
     glottorefs()
     aclwiki()
     olachtml()
